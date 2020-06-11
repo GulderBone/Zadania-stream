@@ -9,10 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Arrays.asList;
-import static nif.Dzieci.getImionaDzieci;
-import static nif.Grupowanie.grupujPoKrajach;
-import static nif.Laczenie.namesToString;
-import static nif.Najstarszy.getNajstarszy;
 import static nif.Podzial.podziel;
 import static nif.Statystyki.getStats;
 import static nif.Sum.policzSume;
@@ -61,7 +57,7 @@ public class TestNIF {
         Osoba viktor = new Osoba("Viktor", 40, "Serbian");
         Osoba eva = new Osoba("Eva", 42, "Norwegian");
         List<Osoba> collection = asList(sara, eva, viktor);
-        Map<String, List<Osoba>> result = grupujPoKrajach(collection);
+        Map<String, List<Osoba>> result = Grupowanie.transform(collection);
         assertThat(result.get("Norwegian")).hasSameElementsAs(asList(sara, eva));
         assertThat(result.get("Serbian")).hasSameElementsAs(asList(viktor));
     }
@@ -72,8 +68,8 @@ public class TestNIF {
         Osoba viktor = new Osoba("Viktor", 40);
         Osoba eva = new Osoba("Eva", 42);
         List<Osoba> collection = asList(sara, viktor, eva);
-        assertThat(namesToString(collection))
-                .isEqualTo("Names: Sara, Viktor, Eva.");
+        assertThat(Laczenie.transform(collection))
+                .isEqualTo("Names: Sara, Viktor, Eva, ");
     }
 
     @org.junit.Test
@@ -83,7 +79,7 @@ public class TestNIF {
         Osoba eva = new Osoba("Eva", 42);
         Osoba anna = new Osoba("Anna", 5);
         List<Osoba> collection = asList(sara, eva, viktor, anna);
-        assertThat(getImionaDzieci(collection))
+        assertThat(Dzieci.transform(collection))
                 .contains("Sara", "Anna")
                 .doesNotContain("Viktor", "Eva");
     }
@@ -95,7 +91,7 @@ public class TestNIF {
         Osoba viktor = new Osoba("Viktor", 40);
         Osoba eva = new Osoba("Eva", 42);
         List<Osoba> collection = asList(sara, eva, viktor);
-        assertThat(getNajstarszy(collection)).isEqualToComparingFieldByField(eva);
+        assertThat(Najstarszy.transform(collection)).isEqualTo(42);
     }
 
 

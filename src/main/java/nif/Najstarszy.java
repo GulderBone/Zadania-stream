@@ -5,19 +5,8 @@ import nif.Model.Osoba;
 import java.util.List;
 
 public class Najstarszy {
-
-    public static Osoba getOldestPerson7(List<Osoba> people) {
-        Osoba oldestPerson = new Osoba("", 0);
-        for (Osoba person : people) {
-            if (person.getAge() > oldestPerson.getAge()) {
-                oldestPerson = person;
-            }
-        }
-        return oldestPerson;
+    public static int transform(List<Osoba> people) {
+        return 0; // Znajdź wiek najstarszej osoby z listy.
+        // użyj .get() na końcu, jest to związane z Optionalami, będziemy o nich mówić.
     }
-
-    public static Osoba getNajstarszy(List<Osoba> people) {
-        return null; // Znajdź najastarszego
-    }
-
 }
