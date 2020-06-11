@@ -1,25 +1,9 @@
 package nif;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 public class NaDuzeLitery {
-
-    private NaDuzeLitery() {
+    public static List<String> transform(List<String> list) {
+        return null; // Zamień elementy listy na pisane dużymi literami.
     }
-
-    public static List<String> transform7(List<String> collection) {
-        List<String> newCollection = new ArrayList<>();
-        for (String element : collection) {
-            newCollection.add(element.toUpperCase());
-        }
-        return newCollection;
-    }
-
-    public static List<String> transform(List<String> collection) {
-        return null; // zamien stringu na duże litery
-    }
-
 }
