@@ -101,7 +101,7 @@ public class TestNIF {
     @org.junit.Test
     public void Statystyki() {
         AssertionsForClassTypes.assertThat(Statystyki.transform(collection).getAverage())
-                .isEqualTo((double)(4 + 40 + 42) / 3);
+                .isEqualTo((double) (4 + 40 + 42) / 3);
         AssertionsForClassTypes.assertThat(Statystyki.transform(collection).getCount())
                 .isEqualTo(3);
         AssertionsForClassTypes.assertThat(Statystyki.transform(collection).getMax())

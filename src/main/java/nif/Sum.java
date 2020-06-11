@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Sum {
     public static int transform(List<Integer> numbers) {
-        return 0; // Zwróć sumę liczb;
+        return numbers.stream()
+                .reduce(0, Integer::sum); // Zwróć sumę liczb;
     }
 }
